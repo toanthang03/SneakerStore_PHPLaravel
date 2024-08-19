@@ -154,19 +154,8 @@
                         <div class="pro_feature">
                             <table class="product-info-table">
                                 <tr>
-                                    <th colspan="2" class="header-section">THÔNG TIN SẢN PHẨM</th>
-                                </tr>
-                                <tr>
                                     <td>NHÃN HIỆU</td>
-                                    <td>
-                                        @if($products->brand_id == 1)
-                                        Vans
-                                        @elseif($products->brand_id == 2)
-                                        Converse
-                                        @else
-                                        {{$products->brand->name}} <!-- For other brand names using the relationship -->
-                                        @endif
-                                    </td>
+                                    <td>{{$brand->name}}</td>
                                 </tr>
                                 <tr>
                                     <td>TÊN</td>
@@ -174,23 +163,7 @@
                                 </tr>
                                 <tr>
                                     <td>DÒNG SẢN PHẨM</td>
-                                    <td>
-                                        @if($products->category_id == 1)
-                                        Old Skool
-                                        @elseif($products->category_id == 2)
-                                        Classic
-                                        @elseif($products->category_id == 3)
-                                        Chuck 1970s
-                                        @elseif($products->category_id == 4)
-                                        Vans Slip-On
-                                        @elseif($products->category_id == 5)
-                                        Vans Knu Skool
-                                        @elseif($products->category_id == 6)
-                                        Vans Authentic
-                                        @else
-                                        {{$products->brand->name}} <!-- For other brand names using the relationship -->
-                                        @endif
-                                    </td>
+                                    <td>{{$category->name}}</td>
                                 </tr>
                                 <tr>
                                     <td>NƠI SẢN XUẤT</td>
@@ -361,7 +334,6 @@
         width: 60%;
         border-collapse: collapse;
         margin: 0 auto;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .product-info-table th,
@@ -371,15 +343,11 @@
     }
 
     .product-info-table th {
-        background-color: #f44336;
-        color: white;
         text-align: left;
         font-weight: normal;
     }
 
     .product-info-table .header-section {
-        background-color: #f44336;
-        color: white;
         text-align: center;
         font-size: 18px;
         font-weight: bold;

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -35,6 +37,8 @@ class ProductController extends Controller
         ->where('id', '!=', $id)
         ->take(5)
         ->get();
-        return view('Client.detail', compact('products', 'product'));
+        $category = Category::find($products->category_id);
+        $brand = Brand::find($products->brand_id);
+        return view('Client.detail', compact('products', 'product', 'category','brand'));
     }
 }
