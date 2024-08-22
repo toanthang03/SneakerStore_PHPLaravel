@@ -62,30 +62,32 @@
                         <div class="top-selector-wrapper">
                             <ul class="single-top-selector">
                                 <!-- Sanguage Start -->
+                                @if (Auth::check())
+                                <li class="setting-top list-inline-item">
+                                    <div class="btn-group">
+                                        <button class="dropdown-toggle"><i class="fa fa-user-circle-o"></i> {{ Auth::User()->name }} <i class="fa fa-angle-down"></i></button>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="">Thông tin</a></li>
+                                                <li><a href="{{route('logout')}}">Đăng xuất</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                @else
+                                <!-- Nếu chưa đăng nhập thì hiện dòng này -->
                                 <li class="setting-top list-inline-item">
                                     <div class="btn-group">
                                         <button class="dropdown-toggle"><i class="fa fa-user-circle-o"></i> Tài khoản <i class="fa fa-angle-down"></i></button>
                                         <div class="dropdown-menu">
                                             <ul>
                                                 <li><a href="{{route('login')}}">Đăng nhập</a></li>
-                                                <li><a href="checkout.html">Đăng xuất</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </li>
-                                <!-- Nếu chưa đăng nhập thì hiện dòng này -->
-                                <!-- <li class="setting-top list-inline-item">
-                                    <div class="btn-group">
-                                        <button class="dropdown-toggle"><i class="fa fa-user-circle-o"></i> Tài khoản <i class="fa fa-angle-down"></i></button>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a href="login-register.html">Đăng nhập</a></li>
-                                                <li><a href="login-register.html">Đăng ký</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li> -->
                                 <!-- Sanguage End -->
+                                @endif
                             </ul>
                         </div>
                     </div>
